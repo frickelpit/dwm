@@ -29,9 +29,10 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	{ "Firefox",  NULL,       NULL,       1,       0,           -1 },
+	/* class            instance    title       tags mask       isfloating      monitor */
+	{ "Firefox",        NULL,       NULL,       1,              0,              -1 },
+    { "Thunderbird",    NULL,       NULL,       1 << 2,         0,              -1 },
+    { "Pcmanfm",        NULL,       NULL,       1 << 4,         1,              -1 },
 };
 
 /* layout(s) */
@@ -64,13 +65,14 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *termcmd[]  = { "urxvtc", NULL };
 
 /* my commands */
-static const char *irccmd[]     = { "urxvtc", "-title", "weechat", "-e", "weechat-curses", NULL };
-static const char *volup[]      = { "amixer", "-q", "sset", "Master", "4%+", "unmute", NULL };
+static const char *irccmd[]         = { "urxvtc", "-title", "weechat", "-e", "weechat-curses", NULL };
+static const char *volup[]          = { "amixer", "-q", "sset", "Master", "4%+", "unmute", NULL };
 static const char *voldown[]        = { "amixer", "-q", "sset", "Master", "4%-", "unmute", NULL };
 static const char *volmute[]        = { "amixer", "-q", "sset", "Master", "toggle", NULL };
 static const char *quitcmd[]        = { "killall", "startdwm", NULL };
 static const char *musiccmd[]       = { "urxvtc", "-title", "ncmpcpp", "-e", "ncmpcpp", NULL };
 static const char *browsercmd[]     = { "firefox", NULL };
+static const char *mailcmd[]        = { "thunderbird", NULL };
 static const char *rebootcmd[]      = { "systemctl", "reboot", NULL };
 static const char *shutdowncmd[]    = { "systemctl", "poweroff", NULL };
 static const char *showmpdcmd[]     = { "/home/pit/.bin/showmpd", NULL };
@@ -111,17 +113,18 @@ static Key keys[] = {
 	
     /* my keybindings */
     { MODKEY|ControlMask,           XK_i,       spawn,          {.v = irccmd } },
-    { 0,                            0x1008ff13, spawn,      {.v = volup } },
-    { 0,                            0x1008ff11, spawn,      {.v = voldown } },
-    { 0,                            0x1008ff12, spawn,      {.v = volmute } },
-    { 0,                            0x1008ff02, spawn,      {.v = brightup } },
-    { 0,                            0x1008ff03, spawn,      {.v = brightdown } },
-    { MODKEY|ControlMask,           XK_q,       spawn,      {.v = quitcmd } },
-    { MODKEY|ControlMask,           XK_m,       spawn,      {.v = musiccmd } },
-    { MODKEY|ControlMask,           XK_f,       spawn,      {.v = browsercmd } },
-    { MODKEY|ShiftMask,             XK_r,       spawn,      {.v = rebootcmd } },
-    { MODKEY|ShiftMask,             XK_s,       spawn,      {.v = shutdowncmd } },
-    { MODKEY|ShiftMask,             XK_i,       spawn,      {.v = showmpdcmd } },
+    { 0,                            0x1008ff13, spawn,          {.v = volup } },
+    { 0,                            0x1008ff11, spawn,          {.v = voldown } },
+    { 0,                            0x1008ff12, spawn,          {.v = volmute } },
+    { 0,                            0x1008ff02, spawn,          {.v = brightup } },
+    { 0,                            0x1008ff03, spawn,          {.v = brightdown } },
+    { MODKEY|ControlMask,           XK_q,       spawn,          {.v = quitcmd } },
+    { MODKEY|ControlMask,           XK_m,       spawn,          {.v = musiccmd } },
+    { MODKEY|ControlMask,           XK_f,       spawn,          {.v = browsercmd } },
+    { MODKEY|ControlMask,           XK_t,       spawn,          {.v = mailcmd } },
+    { MODKEY|ShiftMask,             XK_r,       spawn,          {.v = rebootcmd } },
+    { MODKEY|ShiftMask,             XK_s,       spawn,          {.v = shutdowncmd } },
+    { MODKEY|ShiftMask,             XK_i,       spawn,          {.v = showmpdcmd } },
 
     TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
