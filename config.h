@@ -33,6 +33,7 @@ static const Rule rules[] = {
 	{ "Firefox",        NULL,       NULL,       1,              0,              -1 },
     { "Thunderbird",    NULL,       NULL,       1 << 2,         0,              -1 },
     { "Pcmanfm",        NULL,       NULL,       1 << 4,         1,              -1 },
+    { "Keepassx2",      NULL,       NULL,       1 << 4,         1,              -1 },
 };
 
 /* layout(s) */
