@@ -22,7 +22,7 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "web", "irc", "mail", "admin", "misc" };
+static const char *tags[] = { "web", "term", "mail", "admin", "misc" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -31,9 +31,9 @@ static const Rule rules[] = {
 	 */
 	/* class            instance    title       tags mask       isfloating      monitor */
 	{ "Firefox",        NULL,       NULL,       1,              0,              -1 },
-    { "Thunderbird",    NULL,       NULL,       1 << 2,         0,              -1 },
-    { "Pcmanfm",        NULL,       NULL,       1 << 4,         1,              -1 },
-    { "Keepassx2",      NULL,       NULL,       1 << 4,         1,              -1 },
+        { "Thunderbird",    NULL,       NULL,       1 << 2,         0,              -1 },
+        { "Pcmanfm",        NULL,       NULL,       1 << 4,         1,              -1 },
+        { "Keepassx2",      NULL,       NULL,       1 << 4,         1,              -1 },
 };
 
 /* layout(s) */
@@ -47,6 +47,10 @@ static const Layout layouts[] = {
 	{ "[]=",      tile },    /* first entry is default */
 	{ "><>",      NULL },    /* no layout function means floating behavior */
 	{ "[M]",      monocle },
+    { "TTT",      bstack },
+    { "===",      bstackhoriz },
+
+
 };
 
 /* key definitions */
@@ -97,7 +101,9 @@ static Key keys[] = {
 	{ MODKEY,                       XK_t,       setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_f,       setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,       setlayout,      {.v = &layouts[2]} },
-	{ MODKEY,                       XK_space,   setlayout,      {0} },
+	{ MODKEY,                       XK_u,       setlayout,      {.v = &layouts[3]} },
+    { MODKEY,                       XK_o,       setlayout,      {.v = &layouts[4]} },
+    { MODKEY,                       XK_space,   setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,   togglefloating, {0} },
 	{ MODKEY,                       XK_0,       view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,       tag,            {.ui = ~0 } },
@@ -111,7 +117,8 @@ static Key keys[] = {
     { MODKEY|ControlMask,           XK_Right,   tagcycle,       {.i = +1 } },
     { MODKEY|ShiftMask,             XK_j,       movestack,      {.i = +1 } },
     { MODKEY|ShiftMask,             XK_k,       movestack,      {.i = -1 } },
-	
+    
+
     /* my keybindings */
     { MODKEY|ControlMask,           XK_i,       spawn,          {.v = irccmd } },
     { 0,                            0x1008ff13, spawn,          {.v = volup } },
