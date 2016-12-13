@@ -74,20 +74,21 @@ static const char *dmenucmd[]	= { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *termcmd[]	= { "urxvtc", NULL };
 
 /* my commands */
-static const char *brightup[]       = { "xbacklight", "-inc", "5", NULL };
-static const char *brightdown[]     = { "xbacklight", "-dec", "5", NULL };
-static const char *browsercmd[]     = { "firefox", NULL };
-static const char *irccmd[]         = { "urxvtc", "-title", "weechat", "-e", "weechat-curses", NULL };
-static const char *mailcmd[]        = { "thunderbird", NULL };
-static const char *musiccmd[]       = { "urxvtc", "-title", "ncmpcpp", "-e", "ncmpcpp", NULL };
-static const char *quitcmd[]        = { "killall", "startdwm", NULL };
-static const char *rebootcmd[]      = { "systemctl", "reboot", NULL };
-static const char *screenshotcmd[]  = { "scrot", "-e", "mv $f ~/bilder/screenshots/ 2>/dev/null", NULL };
-static const char *showmpdcmd[]     = { "$HOME/.bin/showmpd", NULL };
-static const char *shutdowncmd[]    = { "systemctl", "poweroff", NULL };
-static const char *voldown[]        = { "amixer", "-q", "sset", "Master", "4%-", "unmute", NULL };
-static const char *volmute[]        = { "amixer", "-q", "sset", "Master", "toggle", NULL };
-static const char *volup[]          = { "amixer", "-q", "sset", "Master", "4%+", "unmute", NULL };
+static const char *brightup[]		= { "xbacklight", "-inc", "5", NULL };
+static const char *brightdown[]		= { "xbacklight", "-dec", "5", NULL };
+static const char *browsercmd[]		= { "firefox", NULL };
+static const char *filecmd[]		= { "pcmanfm", NULL };
+static const char *irccmd[]		= { "urxvtc", "-title", "weechat", "-e", "weechat-curses", NULL };
+static const char *mailcmd[]		= { "thunderbird", NULL };
+static const char *musiccmd[]		= { "urxvtc", "-title", "ncmpcpp", "-e", "ncmpcpp", NULL };
+static const char *quitcmd[]		= { "killall", "startdwm", NULL };
+static const char *rebootcmd[]		= { "systemctl", "reboot", NULL };
+static const char *screenshotcmd[]	= { "scrot", "-e", "mv $f ~/bilder/screenshots/ 2>/dev/null", NULL };
+static const char *showmpdcmd[]		= { "$HOME/.bin/showmpd", NULL };
+static const char *shutdowncmd[]	= { "systemctl", "poweroff", NULL };
+static const char *voldown[]		= { "amixer", "-q", "sset", "Master", "4%-", "unmute", NULL };
+static const char *volmute[]		= { "amixer", "-q", "sset", "Master", "toggle", NULL };
+static const char *volup[]		= { "amixer", "-q", "sset", "Master", "4%+", "unmute", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -135,6 +136,7 @@ static Key keys[] = {
 	{ MODKEY|ControlMask,           XK_f,           spawn,          {.v = browsercmd } },
 	{ MODKEY|ShiftMask,             XK_i,           spawn,          {.v = showmpdcmd } },
 	{ MODKEY|ControlMask,           XK_m,           spawn,          {.v = musiccmd } },
+	{ MODKEY|ShiftMask,		XK_p,		spawn,		{.v = filecmd } },
 	{ MODKEY|ControlMask,           XK_q,           spawn,          {.v = quitcmd } },
 	{ MODKEY|ShiftMask,             XK_r,           spawn,          {.v = rebootcmd } },
 	{ MODKEY|ShiftMask,             XK_s,           spawn,          {.v = shutdowncmd } },
