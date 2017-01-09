@@ -8,15 +8,15 @@ static const unsigned int borderpx  = 1;	/* border pixel of windows */
 static const unsigned int snap      = 5;	/* snap pixel */
 static const int showbar            = 1;	/* 0 means no bar */
 static const int topbar             = 1;	/* 0 means bottom bar */
-static const char *fonts[]          = { "Novo Mono:size=9" };
-static const char dmenufont[]       = "Novo Mono:size=9";
-static const char col_gray1[]       = "#272822";
+static const char *fonts[]          = { "Novo Sans:size=9" };
+static const char dmenufont[]       = "Novo Sans:size=9";
+static const char col_gray1[]       = "#1d1f21";
 static const char col_gray2[]       = "#444444";
-static const char col_gray3[]       = "#f8f8f2";
+static const char col_gray3[]       = "#c5c8c6";
 static const char col_gray4[]       = "#f8f8f2";
 static const char col_cyan[]        = "#a1efe4";
 static const char col_yellow[]      = "#f4bf75";
-static const char col_red[]         = "#f92672";
+static const char col_red[]         = "#cc6666";
 static const char col_magenta[]     = "#ae81ff";
 static const char col_black[]       = "#75715e";
 static const char *colors[][3]      = {
@@ -26,7 +26,7 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "web", "irc", "mail", "term", "media", "misc" };
+static const char *tags[] = { "web", "irc", "mail", "term", "office", "media", "misc" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -36,10 +36,10 @@ static const Rule rules[] = {
 	/* class            instance    title       tags mask       isfloating      monitor */
 	{ "Firefox",        NULL,       NULL,       1,              0,              -1 },
 	{ "Thunderbird",    NULL,       NULL,       1 << 2,         0,              -1 },
-	{ "Pcmanfm",        NULL,       NULL,       1 << 5,         1,              -1 },
-	{ "Keepassx2",      NULL,       NULL,       1 << 5,         1,              -1 },
+	{ "Pcmanfm",        NULL,       NULL,       1 << 6,         1,              -1 },
+	{ "Keepassx2",      NULL,       NULL,       1 << 6,         1,              -1 },
 	{ NULL,             NULL,       "weechat",  1 << 1,         0,              -1 },
-	{ NULL,             NULL,       "mpv",      1 << 4,         0,              -1 },
+	{ NULL,             NULL,       "mpv",      1 << 5,         0,              -1 },
 };
 
 /* layout(s) */
@@ -123,7 +123,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_period,  tagmon,         {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_j,       movestack,      {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_k,       movestack,      {.i = -1 } },
-    
+
 
 	/* my keybindings */
 	{ MODKEY|ControlMask,           XK_i,           spawn,          {.v = irccmd } },
