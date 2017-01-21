@@ -10,7 +10,7 @@ static const int showbar            = 1;	/* 0 means no bar */
 static const int topbar             = 1;	/* 0 means bottom bar */
 static const char *fonts[]          = { "Novo Sans:size=9" };
 static const char dmenufont[]       = "Novo Sans:size=9";
-static const char col_gray1[]       = "#1d1f21";
+static const char col_gray1[]       = "#101010";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#c5c8c6";
 static const char col_gray4[]       = "#f8f8f2";
@@ -84,7 +84,7 @@ static const char *musiccmd[]		= { "urxvtc", "-title", "ncmpcpp", "-e", "ncmpcpp
 static const char *quitcmd[]		= { "killall", "startdwm", NULL };
 static const char *rebootcmd[]		= { "systemctl", "reboot", NULL };
 static const char *screenshotcmd[]	= { "scrot", "-e", "mv $f ~/bilder/screenshots/ 2>/dev/null", NULL };
-static const char *showmpdcmd[]		= { "$HOME/.bin/showmpd", NULL };
+static const char *showmpdcmd[]		= { "/home/pit/.bin/showmpd", NULL };
 static const char *shutdowncmd[]	= { "systemctl", "poweroff", NULL };
 static const char *voldown[]		= { "amixer", "-q", "sset", "Master", "4%-", "unmute", NULL };
 static const char *volmute[]		= { "amixer", "-q", "sset", "Master", "toggle", NULL };
