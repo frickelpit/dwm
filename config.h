@@ -82,6 +82,7 @@ static const char *irccmd[]		= { "urxvtc", "-title", "weechat", "-e", "weechat-c
 static const char *mailcmd[]		= { "thunderbird", NULL };
 static const char *musiccmd[]		= { "urxvtc", "-title", "ncmpcpp", "-e", "ncmpcpp", NULL };
 static const char *quitcmd[]		= { "killall", "startdwm", NULL };
+static const char *rangercmd[]		= { "urxvtc", "-title", "ranger", "-e", "ranger", NULL };
 static const char *rebootcmd[]		= { "systemctl", "reboot", NULL };
 static const char *screenshotcmd[]	= { "scrot", "-e", "mv $f ~/bilder/screenshots/ 2>/dev/null", NULL };
 static const char *showmpdcmd[]		= { "/home/pit/.bin/showmpd", NULL };
@@ -139,6 +140,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,		XK_p,		spawn,		{.v = filecmd } },
 	{ MODKEY|ControlMask,           XK_q,           spawn,          {.v = quitcmd } },
 	{ MODKEY|ShiftMask,             XK_r,           spawn,          {.v = rebootcmd } },
+	{ MODKEY|ControlMask,		XK_r,		spawn,		{.v = rangercmd } },
 	{ MODKEY|ShiftMask,             XK_s,           spawn,          {.v = shutdowncmd } },
 	{ MODKEY|ControlMask,           XK_t,           spawn,          {.v = mailcmd } },
 
